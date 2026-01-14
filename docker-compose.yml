@@ -1,0 +1,90 @@
+version: '3.8'
+
+services:
+  # VPN Server - USA Region
+  vpn-usa:
+    image: linuxserver/wireguard
+    container_name: vpn-usa
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+      - SERVERURL=auto
+      - SERVERPORT=51820
+      - PEERS=10
+      - PEERDNS=1.1.1.1,1.0.0.1
+      - INTERNAL_SUBNET=10.66.66.0
+      - ALLOWEDIPS=0.0.0.0/0
+    volumes:
+      - ./config/usa:/config
+      - /lib/modules:/lib/modules
+    ports:
+      - 51820:51820/udp
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+    restart: unless-stopped
+    networks:
+      - vpn-network
+
+  # VPN Server - Europe Region
+  vpn-europe:
+    image: linuxserver/wireguard
+    container_name: vpn-europe
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+      - SERVERURL=auto
+      - SERVERPORT=51821
+      - PEERS=10
+      - PEERDNS=1.1.1.1,1.0.0.1
+      - INTERNAL_SUBNET=10.67.67.0
+      - ALLOWEDIPS=0.0.0.0/0
+    volumes:
+      - ./config/europe:/config
+      - /lib/modules:/lib/modules
+    ports:
+      - 51821:51821/udp
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+    restart: unless-stopped
+    networks:
+      - vpn-network
+
+  # VPN Server - Asia Region
+  vpn-asia:
+    image: linuxserver/wireguard
+    container_name: vpn-asia
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Tokyo
+      - SERVERURL=auto
+      - SERVERPORT=51822
+      - PEERS=10
+      - PEERDNS=1.1.1.1,1.0.0.1
+      - INTERNAL_SUBNET=10.68.68.0
+      - ALLOWEDIPS=0.0.0.0/0
+    volumes:
+      - ./config/asia:/config
+      - /lib/modules:/lib/modules
+    ports:
+      - 51822:51822/udp
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+    restart: unless-stopped
+    networks:
+      - vpn-network
+
+networks:
+  vpn-network:
+    driver: bridge
