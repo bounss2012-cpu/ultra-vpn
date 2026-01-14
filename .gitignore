@@ -1,0 +1,47 @@
+# Clés privées et secrets
+*.key
+*.psk
+*_private.key
+*_public.key
+*_preshared.key
+
+# Configurations WireGuard
+/etc/wireguard/
+*.conf
+!docker-compose.yml
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Flask
+instance/
+.webassets-cache
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker
+docker-compose.override.yml
+
+# Secrets
+.env
+secrets/
