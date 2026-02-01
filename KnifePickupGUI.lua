@@ -53,10 +53,10 @@ local function toggleKnife()
 				humanoid:EquipTool(newKnife)
 				print("Couteau créé et équipé! / Knife created and equipped!")
 			else
-				warn("ERREUR: Couteau non trouvé dans ReplicatedStorage!")
-				warn("ERROR: Knife not found in ReplicatedStorage!")
-				warn("Assurez-vous qu'un Tool nommé 'Knife' existe dans ReplicatedStorage")
-				warn("Make sure a Tool named 'Knife' exists in ReplicatedStorage")
+				print("⚠️ ERREUR: Couteau non trouvé dans ReplicatedStorage!")
+				print("⚠️ ERROR: Knife not found in ReplicatedStorage!")
+				print("Assurez-vous qu'un Tool nommé 'Knife' existe dans ReplicatedStorage")
+				print("Make sure a Tool named 'Knife' exists in ReplicatedStorage")
 			end
 		end
 	end

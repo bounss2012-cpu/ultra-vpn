@@ -74,14 +74,25 @@ local function findNearbyKnife()
 	local rootPart = character:FindFirstChild("HumanoidRootPart")
 	if not rootPart then return nil end
 	
-	-- Chercher dans le workspace
-	for _, object in pairs(workspace:GetDescendants()) do
-		if object:IsA("Tool") and object.Name == KNIFE_NAME then
-			local handle = object:FindFirstChild("Handle")
-			if handle then
+	-- Utiliser Region3 pour une recherche plus performante
+	local searchRadius = PICKUP_DISTANCE
+	local region = Region3.new(
+		rootPart.Position - Vector3.new(searchRadius, searchRadius, searchRadius),
+		rootPart.Position + Vector3.new(searchRadius, searchRadius, searchRadius)
+	)
+	region = region:ExpandToGrid(4)
+	
+	-- Chercher uniquement dans la région définie
+	local partsInRegion = workspace:FindPartsInRegion3(region, character, 100)
+	
+	for _, part in pairs(partsInRegion) do
+		local tool = part.Parent
+		if tool and tool:IsA("Tool") and tool.Name == KNIFE_NAME then
+			local handle = tool:FindFirstChild("Handle")
+			if handle and handle == part then
 				local distance = (handle.Position - rootPart.Position).Magnitude
 				if distance <= PICKUP_DISTANCE then
-					return object
+					return tool
 				end
 			end
 		end
