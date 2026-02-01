@@ -9,27 +9,27 @@ Ce dépôt contient maintenant **4 scripts Lua complets** et **2 guides** pour c
 ### Scripts Lua
 
 1. **KnifePickupSimple.lua** ⭐ 
-   - Version simplifiée (50 lignes)
+   - Version simplifiée (49 lignes)
    - Parfait pour les débutants
    - Ramassage avec touche E
    - Installation en 2 minutes
 
 2. **KnifePickupScript.lua** ⭐⭐⭐
-   - Version complète (120 lignes)
+   - Version complète (104 lignes)
    - Détection automatique des couteaux proches
    - Distance configurable
    - Équipement automatique
    - Messages de débogage
 
 3. **KnifePickupProximityPrompt.lua** ⭐⭐
-   - Version moderne (90 lignes)
+   - Version moderne (95 lignes)
    - Utilise le système ProximityPrompt de Roblox
    - Interface utilisateur intégrée
    - Compatible PC, Mobile, Console
    - Affichage visuel "Ramasser [E]"
 
 4. **CreateKnifeTool.lua** ⭐⭐
-   - Création automatique d'un couteau (100 lignes)
+   - Création automatique d'un couteau (93 lignes)
    - Système de dégâts intégré
    - Sons d'attaque
    - Apparence métallique

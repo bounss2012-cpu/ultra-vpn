@@ -51,7 +51,7 @@ local function createKnife()
             
             -- Son d'attaque (optionnel)
             local sound = Instance.new("Sound")
-            sound.SoundId = "rbxassetid://12222216" -- Son de tranchage
+            sound.SoundId = "rbxassetid://12222216" -- Son de coup
             sound.Parent = handle
             sound:Play()
             game:GetService("Debris"):AddItem(sound, 1)

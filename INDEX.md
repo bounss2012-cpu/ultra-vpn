@@ -58,7 +58,7 @@ ultra-vpn/
 **Quand l'utiliser:** Vous débutez ou voulez comprendre le code  
 **Installation:** LocalScript dans StarterPlayer > StarterCharacterScripts  
 **Temps:** 2 minutes  
-**Ligne de code:** 49
+**Lignes de code:** 49
 
 ### 2️⃣ KnifePickupProximityPrompt.lua
 **Quand l'utiliser:** Jeu professionnel, besoin d'interface utilisateur  
